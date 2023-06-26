@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="obtenercel">
+        <s:complexType />
+      </s:element>
+      <s:element name="obtenercelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenercelResult" type="tns:ArrayOfCelularesext" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCelularesext">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="celularesext" nillable="true" type="tns:celularesext" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="celularesext">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="capacidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="memoria" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="precio" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="idmarca" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="marcasext" type="tns:marcasext" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="marcasext">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="marca" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="obtenerid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obteneridResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obteneridResult" type="tns:celularesext" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="agregar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tel" type="tns:celularesext" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="agregarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="obtenermar">
+        <s:complexType />
+      </s:element>
+      <s:element name="obtenermarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenermarResult" type="tns:ArrayOfMarcasext" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMarcasext">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="marcasext" nillable="true" type="tns:marcasext" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="edit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tel" type="tns:celularesext" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="obtenercelSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenercel" />
+  </wsdl:message>
+  <wsdl:message name="obtenercelSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenercelResponse" />
+  </wsdl:message>
+  <wsdl:message name="obteneridSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerid" />
+  </wsdl:message>
+  <wsdl:message name="obteneridSoapOut">
+    <wsdl:part name="parameters" element="tns:obteneridResponse" />
+  </wsdl:message>
+  <wsdl:message name="agregarSoapIn">
+    <wsdl:part name="parameters" element="tns:agregar" />
+  </wsdl:message>
+  <wsdl:message name="agregarSoapOut">
+    <wsdl:part name="parameters" element="tns:agregarResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenermarSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenermar" />
+  </wsdl:message>
+  <wsdl:message name="obtenermarSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenermarResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteSoapIn">
+    <wsdl:part name="parameters" element="tns:delete" />
+  </wsdl:message>
+  <wsdl:message name="deleteSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="editSoapIn">
+    <wsdl:part name="parameters" element="tns:edit" />
+  </wsdl:message>
+  <wsdl:message name="editSoapOut">
+    <wsdl:part name="parameters" element="tns:editResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceCEL1Soap">
+    <wsdl:operation name="obtenercel">
+      <wsdl:input message="tns:obtenercelSoapIn" />
+      <wsdl:output message="tns:obtenercelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerid">
+      <wsdl:input message="tns:obteneridSoapIn" />
+      <wsdl:output message="tns:obteneridSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="agregar">
+      <wsdl:input message="tns:agregarSoapIn" />
+      <wsdl:output message="tns:agregarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenermar">
+      <wsdl:input message="tns:obtenermarSoapIn" />
+      <wsdl:output message="tns:obtenermarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input message="tns:deleteSoapIn" />
+      <wsdl:output message="tns:deleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="edit">
+      <wsdl:input message="tns:editSoapIn" />
+      <wsdl:output message="tns:editSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceCEL1Soap" type="tns:WebServiceCEL1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obtenercel">
+      <soap:operation soapAction="http://tempuri.org/obtenercel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerid">
+      <soap:operation soapAction="http://tempuri.org/obtenerid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregar">
+      <soap:operation soapAction="http://tempuri.org/agregar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenermar">
+      <soap:operation soapAction="http://tempuri.org/obtenermar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="http://tempuri.org/delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="edit">
+      <soap:operation soapAction="http://tempuri.org/edit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceCEL1Soap12" type="tns:WebServiceCEL1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obtenercel">
+      <soap12:operation soapAction="http://tempuri.org/obtenercel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerid">
+      <soap12:operation soapAction="http://tempuri.org/obtenerid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregar">
+      <soap12:operation soapAction="http://tempuri.org/agregar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenermar">
+      <soap12:operation soapAction="http://tempuri.org/obtenermar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap12:operation soapAction="http://tempuri.org/delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="edit">
+      <soap12:operation soapAction="http://tempuri.org/edit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceCEL1">
+    <wsdl:port name="WebServiceCEL1Soap" binding="tns:WebServiceCEL1Soap">
+      <soap:address location="http://localhost:56675/WebServiceCEL1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceCEL1Soap12" binding="tns:WebServiceCEL1Soap12">
+      <soap12:address location="http://localhost:56675/WebServiceCEL1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
